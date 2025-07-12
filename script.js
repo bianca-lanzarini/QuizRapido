@@ -51,10 +51,8 @@ let alternativaB = document.querySelector('#altern2');
 let alternativaC = document.querySelector('#altern3');
 let alternativaD = document.querySelector('#altern4');
 let alternativaE = document.querySelector('#altern5');
-
-preenherPergunta(questao1);
-
-botao.addEventListener("click", respondeu);
+let respostasCertas = 0;
+let questaoAtual;
 
 function preenherPergunta(questao){
     pergunta.innerHTML = questao[0];
@@ -63,11 +61,16 @@ function preenherPergunta(questao){
     alternativaC.innerHTML = questao[3];
     alternativaD.innerHTML = questao[4];
     alternativaE.innerHTML = questao[5];
+    //alternativaA.classList.remove("alternativaCorreta");
 };
 
-function respondeu()
-{
-    console.log("clicou");
-    let alternSelecionada = document.querySelector('input[name="opcao"]:checked');
+questaoAtual = questao1;
 
-}
+preenherPergunta(questao1);
+
+alternativaC.addEventListener("click", function () {
+    if (alternativaC.innerHTML === questaoAtual[6]) {
+        respostasCertas += 1;
+        alternativaC.classList.add("alternativaCorreta");
+    }
+});
