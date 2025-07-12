@@ -47,12 +47,29 @@ html, body{
     padding-left: 15px;
 }
 
+.alternativa:hover{
+    cursor: pointer;
+    background-color: rgb(233, 233, 233);
+}
+
 .alternativaCorreta{
+    background-color: #10b40b;
+    color: white;
+    border-color: #047000;
+}
+
+.alternativaCorreta:hover{
     background-color: #10b40b;
     color: white;
 }
 
 .alternativaErrada{
+    background-color: #f82c36;
+    color: white;
+    border-color: #ff000d;
+}
+
+.alternativaErrada:hover{
     background-color: #f82c36;
     color: white;
 }

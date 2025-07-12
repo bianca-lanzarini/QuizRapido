@@ -54,7 +54,7 @@ let alternativaE = document.querySelector('#altern5');
 let respostasCertas = 0;
 let questaoAtual;
 
-function preenherPergunta(questao){
+function preencherPergunta(questao){
     pergunta.innerHTML = questao[0];
     alternativaA.innerHTML = questao[1];
     alternativaB.innerHTML = questao[2];
@@ -65,12 +65,45 @@ function preenherPergunta(questao){
 };
 
 questaoAtual = questao1;
+preencherPergunta(questao1);
 
-preenherPergunta(questao1);
+function mostrarResultado(){
+    let opcaoes = document.querySelector('.opcoes');
+    opcaoes.style.display = 'none';
+    pergunta.innerHTML = `Número de acertos: ${respostasCertas}`;
+}
 
-alternativaC.addEventListener("click", function () {
+function escolheProximaQuestao(alternativa){
+    alternativa.classList.remove('alternativaCorreta');
+    alternativa.classList.remove('alternativaErrada');
+    if (questaoAtual[0].includes('1')) {
+        questaoAtual = questao2;
+        preencherPergunta(questao2);
+    } 
+    else if (questaoAtual[0].includes('2')) {
+        questaoAtual = questao3;
+        preencherPergunta(questao3);
+    }
+    else if (questaoAtual[0].includes('3')) {
+        questaoAtual = questao4;
+        preencherPergunta(questao4);
+    }
+    else if (questaoAtual[0].includes('4')) {
+        questaoAtual = questao5;
+        preencherPergunta(questao5);
+    }
+    else if (questaoAtual[0].includes('5')) {
+        mostrarResultado();
+    }
+};
+
+alternativaC.addEventListener('click', function () {
     if (alternativaC.innerHTML === questaoAtual[6]) {
         respostasCertas += 1;
-        alternativaC.classList.add("alternativaCorreta");
+        alternativaC.classList.add('alternativaCorreta');
     }
+    else {
+        alternativaC.classList.add('alternativaErrada');
+    }
+    setTimeout(escolheProximaQuestao, 2000, alternativaC);
 });
