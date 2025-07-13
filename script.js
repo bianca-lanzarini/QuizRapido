@@ -126,97 +126,41 @@ function marcarAltCorreta(indice){
         return alternativaCerta;
 };
 
-alternativaA.addEventListener('click', function () {
-    let alternCerta = alternativaA;
+function validaAlternativaEscolhida(alternativa){
+    let alternCerta = alternativa;
     let i = 0;
-    let alternativa = "";
-    if (alternativaA.innerHTML === questaoAtual[6]) {
+    let alt = "";
+    if (alternativa.innerHTML === questaoAtual[6]) {
         respostasCertas += 1;
-        alternativaA.classList.add('alternativaCorreta');
+        alternativa.classList.add('alternativaCorreta');
     }
     else {
-        alternativaA.classList.add('alternativaErrada');
-        while (alternativa !== questaoAtual[6]) {
-            alternativa = questaoAtual[i];
+        alternativa.classList.add('alternativaErrada');
+        while (alt !== questaoAtual[6]) {
+            alt = questaoAtual[i];
             i += 1;
         }
         alternCerta = marcarAltCorreta(i-1);
     }
-    setTimeout(escolheProximaQuestao, 2000, alternativaA, alternCerta);
+    setTimeout(escolheProximaQuestao, 2000, alternativa, alternCerta);    
+}
+
+alternativaA.addEventListener('click', function () {
+    validaAlternativaEscolhida(alternativaA);
 });
 
 alternativaB.addEventListener('click', function () {
-    let alternCerta = alternativaB;
-    let i = 0;
-    let alternativa = "";
-    if (alternativaB.innerHTML === questaoAtual[6]) {
-        respostasCertas += 1;
-        alternativaB.classList.add('alternativaCorreta');
-    }
-    else {
-        alternativaB.classList.add('alternativaErrada');
-        while (alternativa !== questaoAtual[6]) {
-            alternativa = questaoAtual[i];
-            i += 1;
-        }
-        alternCerta = marcarAltCorreta(i-1);
-    }
-    setTimeout(escolheProximaQuestao, 2000, alternativaB, alternCerta);
+    validaAlternativaEscolhida(alternativaB);
 });
 
 alternativaC.addEventListener('click', function () {
-    let alternCerta = alternativaC;
-    let i = 0;
-    let alternativa = "";
-    if (alternativaC.innerHTML === questaoAtual[6]) {
-        respostasCertas += 1;
-        alternativaC.classList.add('alternativaCorreta');
-    }
-    else {
-        alternativaC.classList.add('alternativaErrada');
-        while (alternativa !== questaoAtual[6]) {
-            alternativa = questaoAtual[i];
-            i += 1;
-        }
-        alternCerta = marcarAltCorreta(i-1);
-    }
-    setTimeout(escolheProximaQuestao, 2000, alternativaC, alternCerta);
+    validaAlternativaEscolhida(alternativaC);
 });
 
 alternativaD.addEventListener('click', function () {
-    let alternCerta = alternativaD;
-    let i = 0;
-    let alternativa = "";
-    if (alternativaD.innerHTML === questaoAtual[6]) {
-        respostasCertas += 1;
-        alternativaD.classList.add('alternativaCorreta');
-    }
-    else {
-        alternativaD.classList.add('alternativaErrada');
-        while (alternativa !== questaoAtual[6]) {
-            alternativa = questaoAtual[i];
-            i += 1;
-        }
-        alternCerta = marcarAltCorreta(i-1);
-    }
-    setTimeout(escolheProximaQuestao, 2000, alternativaD, alternCerta);
+    validaAlternativaEscolhida(alternativaD);
 });
 
 alternativaE.addEventListener('click', function () {
-    let alternCerta = alternativaE;
-    let i = 0;
-    let alternativa = "";
-    if (alternativaE.innerHTML === questaoAtual[6]) {
-        respostasCertas += 1;
-        alternativaE.classList.add('alternativaCorreta');
-    }
-    else {
-        alternativaE.classList.add('alternativaErrada');
-        while (alternativa !== questaoAtual[6]) {
-            alternativa = questaoAtual[i];
-            i += 1;
-        }
-        alternCerta = marcarAltCorreta(i-1);
-    }
-    setTimeout(escolheProximaQuestao, 2000, alternativaE, alternCerta);
+    validaAlternativaEscolhida(alternativaE);
 });
